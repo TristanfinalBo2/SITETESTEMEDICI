@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eclipse Medical Tower</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+     @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: #000000;
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #000;
+  padding: 8px 40px; /* era probabil 20-30px înainte */
+  height: 60px; /* setează înălțimea totală */
+}
+
+/* Logo-uri centrate */
+.header-logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px; /* spațiu între logo-uri */
+  margin: 0 auto;
+  transform: translate(-345px, -2px); /* ajustează ușor poziția */
+}
+
+/* Imaginile din header */
+header img {
+  height: 45px;
+  width: auto;
+  object-fit: contain;
+  vertical-align: middle;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* Efect hover rafinat */
+header img:hover {
+  transform: scale(1.05);
+}
+
+/* Textul și meniul */
+header nav a {
+  color: white;
+  font-weight: 900;
+  text-decoration: none;
+  margin: 0 15px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+header nav a:hover {
+  color: #ff0000;
+  transform: translateY(-2px);
+}
+
+
+
+        .text-gradient {
+      background: linear-gradient(180deg, #FFFFFF 0%, #252525 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: bold; 
+    }
+
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #e50914;
+    }
+
+    .hero {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 90vh;
+      background: url('poze_eclipse2.png') center/cover no-repeat;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+    .hero-content {
+      position: relative;
+      text-align: center;
+      z-index: 1;
+    }
+
+    .hero-content h1 {
+      padding-bottom: 15px;
+      font-size: 3.5rem;
+      font-weight: 700;
+    }
+
+    .hero-content h1 span {
+      color: #e50914;
+    }
+
+    .hero-content button {
+      margin: 1rem;
+      padding: 0.8rem 1.8rem;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .hero-content .btn-grey {
+      background: #8a1b1b;
+      color: #fff;
+      padding: 0.7em 1.5em;
+      border-radius: 10px;
+      text-decoration: none;
+    }
+
+    .hero-content .btn-red {
+      background: #ca0000a8;
+      color: #ffffff;
+      padding: 0.7em 1.5em;
+      border-radius: 10px;
+      text-decoration: none;
+    }
+
+    .hero-content button:hover {
+      transform: scale(1.05);
+    }
+
+    .announcement {
+      padding: 5rem 2rem;
+      background: linear-gradient(to bottom, #0c0c0c, #1a1a1a);
+      text-align: center;
+    }
+
+    .announcement h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+
+#cereri {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .2rem;
+}
+
+/* Wrapper pentru ambele formulare */
+.form-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 6rem;
+  flex-wrap: wrap; /* se adaptează pe ecrane mici */
+}
+
+/* Formularele propriu-zise */
+.form-box {
+  background: #0c0c0c;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 0 90px rgba(255,0,0,0.04);
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+}
+
+.form-box p {
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.form-box input {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  background: #222;
+  color: #fff;
+}
+
+.form-box .btn-apply {
+  background: linear-gradient(to right, #ff0000, #b30000);
+  border: none;
+  padding: 10px;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+/* Logo-ul central */
+.logo-centru {
+  height: 200px;
+  align-self: center;
+  filter: drop-shadow(0 0 10px rgba(255,0,0,0.4));
+}
+
+    .cards {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      background: #111;
+      border-radius: 12px;
+      width: 280px;
+      overflow: hidden;
+      box-shadow: 0 0 15px rgba(255,255,255,0.1);
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 1rem;
+    }
+
+    .card-content h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-content p {
+      font-size: 0.9rem;
+      color: #ccc;
+      line-height: 1.4;
+    }
+
+    .about {
+      padding: 5rem 2rem;
+      background: #0c0c0c;
+      text-align: center;
+      max-width: 999px;
+      margin: auto;
+    }
+
+    .about h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .about p {
+      margin-bottom: 1rem;
+      color: #ccc;
+      line-height: 1.6;
+    }
+
+    .about p span {
+      color: #e50914;
+      font-weight: 600;
+    }
+
+    .members {
+      background: #000;
+      padding: 80px 0;
+      text-align: center;
+    }
+
+    .members h2 {
+      color: #e0e0e0;
+      font-size: 2rem;
+      margin-bottom: 50px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    /* GRID corect – 3 coloane, se adaptează automat */
+    .members .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px 40px; /* spațiu între rânduri și coloane */
+      justify-items: center;
+      max-width: 1100px; /* lățime maximă pentru a centra totul */
+      margin: 0 auto;
+    }
+
+    /* Carduri */
+    .member-card {
+      background: #1a1a1a;
+      color: #fff;
+      border-radius: 20px;
+      padding: 15px 20px;
+      width: 320px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .member-card:hover {
+      background: #2a2a2a;
+      transform: scale(1.05);
+    }
+
+    /* Imagine rotundă */
+    .member-img {
+      width: 65px;
+      height: 55px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    /* Text din card */
+    .member-info {
+      text-align: left;
+    }
+
+    .member-info h3 {
+      font-size: 0.9rem;
+      margin: 0;
+      color: #f5f5f5;
+    }
+
+    .member-info p {
+      font-size: 0.85rem;
+      color: #b0b0b0;
+      margin-top: 4px;
+    }
+
+
+
+    .subdepartamente {
+  background-color: #0a0a0a;
+  padding: 60px 0;
+  text-align: center;
+  color: #fff;
+}
+
+.subdepartamente h2 {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #fff;
+  margin-bottom: 40px;
+}
+
+.departamente {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.departament {
+  background-color: #111;
+  border: 1px solid #222;
+  border-radius: 12px;
+  padding: 30px 40px;
+  width: 300px;
+  box-shadow: 0 0 35px rgba(255, 0, 0, 0.09);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.departament:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+}
+
+.departament h3 {
+  color: #e53e3e; /* roșu accent */
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.departament p {
+  color: #ccc;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.departament strong {
+  color: #fff;
+}
+
+
+    .btn {
+      display: inline-block;
+      background: #333;
+      color: #fff;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      margin-top: 2rem;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    .btn:hover {
+      background: #e50914;
+    }
+
+    .forms {
+      
+      padding: 3rem 2rem;
+      text-align: center;
+      background: #111111;
+    }
+
+    .forms h2 {
+      margin-bottom: 2rem;
+    }
+
+    .forms p {
+      font-weight: 700;
+    }
+
+    .form-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 40rem;
+    }
+
+    form {
+      box-shadow: 0 0 60px rgba(255, 0, 0, 0.09);
+      background: #000000;
+      padding: 1.5rem;
+      border-radius: 15px;
+      width: 450px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.95rem;
+    }
+
+    input, textarea {
+      padding: 0.75rem;
+      border: none;
+      border-radius: 10px;
+      background: #1a1a1a;
+      color: #fff;
+    }
+
+    button.submit {
+      background: #e50914;
+      color: #fff;
+      font-weight: 600;
+      border: none;
+      border-radius: 6px;
+      padding: 0.8rem;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    button.submit:hover {
+      transform: scale(1.05);
+    }
+
+    footer {
+      padding: 3rem 1rem;
+      background: #0c0c0c;
+      text-align: center;
+    }
+
+    footer ul {
+      list-style: none;
+      margin-bottom: 1rem;
+    }
+
+    footer li {
+      margin: 0.3rem 0;
+    }
+
+    footer p {
+      color: #888;
+      font-size: 0.9rem;
+    }
+    
+    /* FOOTER - stil nou */
+.site-footer {
+  background: #070707;
+  color: #ddd;
+  position: relative;
+  padding: 60px 20px ;/* spațiu mai mare jos pentru glow */
+  overflow: visible;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* linia subtire de separare deasupra footer-ului */
+.footer-top-line {
+  height: 1px;
+  background: rgba(255,255,255,0.06);
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto 30px;
+  border-top: 1px solid rgba(255,255,255,0.03);
+}
+
+/* conținut centrat */
+.footer-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  align-items: center;
+  padding-top: 50px;
+  padding-bottom: 40px;
+}
+
+ .footer-content h2{
+  color: white;
+  padding-left: 330px;
+ }
+
+/* mica casetă cu text (pentru continutul info) */
+.info-box-mini {
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+  border-radius: 12px;
+  padding: 26px;
+  margin: 0 auto;
+  width: 85%;
+  box-shadow: 0 6px 30px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.02) inset;
+  text-align: left;
+  justify-content: center;
+  align-items: center;
+  color: #dcdcdc;
+}
+
+.info-box-mini p {
+  margin: 0 0 16px;
+  line-height: 1.7;
+  font-size: 15px;
+}
+
+/* highlight roșu în text */
+.info-box-mini .highlight {
+  color: #ff2b2b;
+  font-weight: 700;
+}
+
+/* buton din casetă */
+.btn-apply {
+  position: relative;
+  display: inline-block;
+  padding: 14px 40px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  background: linear-gradient(90deg, #ff1e1e, #b30000);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+  overflow: hidden;
+  text-decoration: none;
+  margin-top: 20px;
+  padding-bottom: 10px;
+}
+
+.btn-apply::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0)
+  );
+  transform: skewX(-25deg);
+  transition: all 0.5s ease;
+}
+
+.btn-apply:hover::before {
+  left: 125%;
+}
+
+.btn-apply:hover {
+  transform: translateY(-3px) scale(1.03);
+  background: linear-gradient(90deg, #ff4747, #ff0000);
+  box-shadow: 0 0 30px rgba(255, 50, 50, 0.7);
+}
+
+.btn-apply:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+.btn-apply::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(255, 255, 255, 0.1),
+    transparent 70%
+  );
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+
+.footer-content {
+  max-width: 909px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* caseta info */
+.info-box-mini {
+  box-shadow: 0 0 90px rgba(255, 0, 0, 0.099);
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+  border-radius: 12px;
+  padding: 26px;
+  width: 100%;
+  max-width: 700px;
+  color: #dcdcdc;
+  text-align: left;
+}
+
+.footer-socials {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 35px;
+  padding: 0px 0;
+  background: transparent;
+
+}
+
+.footer-socials .social-icon {
+  position: relative;
+  font-size: 20px;
+  color: #fff;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.25);
+  border: 1px solid rgba(255, 0, 0, 0.15);
+  transition: all 0.5s ease;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.footer-socials .social-icon::before {
+  content: "";
+  position: absolute;
+  width: 90%;
+  height: 90%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 0, 0, 0.25), transparent 70%);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  z-index: 0;
+}
+
+.footer-socials .social-icon i {
+  position: relative;
+  z-index: 2;
+  transition: transform 0.4s ease, color 0.4s ease;
+}
+
+/* ✨ Hover Effect Nou */
+.footer-socials .social-icon:hover {
+  transform: translateY(-8px) scale(1.08);
+  box-shadow: 0 0 30px rgba(255, 0, 0, 0.45), 0 0 80px rgba(255, 0, 0, 0.25);
+  border: 1px solid rgba(255, 80, 80, 0.4);
+}
+
+.footer-socials .social-icon:hover::before {
+  transform: scale(1.4);
+  opacity: 0.8;
+}
+
+.footer-socials .social-icon:hover i {
+  color: #ff3b3b;
+  transform: scale(1.15);
+}
+
+.footer-socials .social-icon::after {
+  content: "";
+  position: absolute;
+  width: 50%;
+  height: 120%;
+  top: -10%;
+  left: -80%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transform: skewX(-20deg);
+  transition: all 0.8s ease;
+  opacity: 0;
+}
+
+.footer-socials .social-icon:hover::after {
+  left: 130%;
+  opacity: 1;
+}
+
+
+/* text de copyright */
+.footer-credits {
+  text-align: center;
+  color: #bdbdbd;
+  font-size: 11px;
+  margin-left: 330px;
+  margin-bottom: -10px;
+}
+
+
+/* ===== iPhone Toast Notification ===== */
+.toast {
+  position: fixed;
+  top: 20px;
+  right: 50%;
+  transform: translateX(50%) translateY(-100%);
+  background: rgba(40, 40, 40, 0.85);
+  backdrop-filter: blur(10px);
+  color: #181b15;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+  font-weight: 500;
+  border-radius: 20px;
+  padding: 14px 26px;
+  font-size: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 9999;
+}
+
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.toast.show {
+  transform: translateX(50%) translateY(0);
+  opacity: 1;
+}
+
+.toast.success {
+  background: linear-gradient(135deg, #00ff88, #00c853);
+  box-shadow: 0 0 20px rgba(0, 255, 150, 0.5);
+}
+
+.toast.error {
+  background: linear-gradient(135deg, #ff4b2b, #ff416c);
+  box-shadow: 0 0 20px rgba(255, 70, 90, 0.5);
+}
+
+/* responsive tweaks */
+@media (min-width: 900px) {
+  .footer-content {
+    grid-template-columns: 1fr auto;
+    gap: 40px;
+    align-items: start;
+  }
+  .info-box-mini { width: 70%; }
+  .footer-socials { margin-top: 0; align-self: center; }
+}
+
+@media (max-width: 600px) {
+  .info-box-mini { width: 95%; padding: 18px; }
+  .footer-socials .social { width: 46px; height: 46px; }
+}
+
+
+    @media (max-width: 768px) {
+      .hero-content h1 { font-size: 2rem; }
+      header { flex-direction: column; text-align: center; }
+    }
+
+  </style>
+</head>
+<body>
+  <div id="toast" class="toast"></div>
+  <header>
+    <h2 class="text-gradient">Eclipse Medical Tower</h2>
+<header>
+  <div class="header-logos">
+    <img src="logofpt.png" alt="FPLAYT">
+    <span style="color: rgb(204, 204, 204); font-size: 24px;">×</span>
+    <img src="hrteam.png" alt="Medic FPLAYT">
+  </div>
+</header>
+
+
+    <nav>
+      <a href="#anunturi">Anunțuri</a>
+      <a href="#membri">Membrii</a>
+      <a href="#subdepartamente">Sub-departamente</a>
+      <a href="#cereri">Cereri</a>
+      <a href="#INFORAMTII">Informații</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="text-gradient">ÎMPREUNĂ SALVĂM <span>ORAȘUL!</span></h1>
+      <a class="btn-red" href="#anunturi">Află mai multe</a>
+    </div>
+  </section>
+
+  <section id="anunturi" class="announcement">
+    <h2 class="text-gradient">ANUNȚURI IN-CHARACTER</h2>
+    <div class="cards">
+      <div class="card">
+        <img src="poze_eclipse6.png" alt="Anunț">
+        <div class="card-content">
+          <h3>Operații Tatuaje</h3>
+          <p>Vino la spital pentru schimbare! Beneficiază de îndepărtarea tatuajelor pentru 10.000$.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="poze_civil2.png" alt="Anunț">
+        <div class="card-content">
+          <h3>Operații Tatuaje</h3>
+          <p>Vino la spital pentru schimbare! Beneficiază de îndepărtarea tatuajelor pentru 10.000$.</p>
+        </div>
+      </div>
+          <div class="cards">
+      <div class="card">
+        <img src="poze_control1.png" alt="Anunț">
+        <div class="card-content">
+          <h3>Operații Tatuaje</h3>
+          <p>Vino la spital pentru schimbare! Beneficiază de îndepărtarea tatuajelor pentru 10.000$.</p>
+        </div>
+      </div>
+          <div class="cards">
+      <div class="card">
+        <img src="poze_control3.png" alt="Anunț">
+        <div class="card-content">
+          <h3>Operații Tatuaje</h3>
+          <p>Vino la spital pentru schimbare! Beneficiază de îndepărtarea tatuajelor pentru 10.000$.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="membri" class="members">
+  <h2 class="text-gradient">MEMBRII CONDUCERE</h2>
+  <div class="grid">
+    
+    <div class="member-card">
+      <img src="image.png" alt="Darrin Rodriguez" class="member-img">
+      <div class="member-info">
+        <h3>Darrin Rodriguez - [M-001]</h3>
+        <p>Director General • Vechime: 06.04.2021</p>
+      </div>
+    </div>
+
+    <div class="member-card">
+      <img src="image.png" alt="Darrin Rodriguez" class="member-img">
+      <div class="member-info">
+        <h3>Darrin Rodriguez - [M-001]</h3>
+        <p>Director General • Vechime: 06.04.2021</p>
+      </div>
+    </div>
+
+    <div class="member-card">
+      <img src="image.png" alt="Darrin Rodriguez" class="member-img">
+      <div class="member-info">
+        <h3>Darrin Rodriguez - [M-001]</h3>
+        <p>Director General • Vechime: 06.04.2021</p>
+      </div>
+    </div>
+
+        <div class="member-card">
+      <img src="image.png" alt="Darrin Rodriguez" class="member-img">
+      <div class="member-info">
+        <h3>Darrin Rodriguez - [M-001]</h3>
+        <p>Director General • Vechime: 06.04.2021</p>
+      </div>
+    </div>
+
+        <div class="member-card">
+      <img src="image.png" alt="Darrin Rodriguez" class="member-img">
+      <div class="member-info">
+        <h3>Darrin Rodriguez - [M-001]</h3>
+        <p>Director General • Vechime: 06.04.2021</p>
+      </div>
+    </div>
+
+        <div class="member-card">
+      <img src="image.png" alt="Darrin Rodriguez" class="member-img">
+      <div class="member-info">
+        <h3>Darrin - [M-001]</h3>
+        <p>Director General • Vechime: 06.04.2021</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<section id="subdepartamente" class="subdepartamente">
+  <h2 class="text-gradient">SUB-DEPARTAMENTELE SPITALULUI</h2>
+
+  <div class="departamente">
+    <div class="departament">
+      <h3>M.M.L.S</h3>
+      <p>Inspector General M.M.L.S:<br><strong>Ampu Dragușin</strong><br>Tel: 929-1526<br>Contact: @zeiyxl</p>
+      <br>
+      <p>Inspector Șef M.M.L.S:<br><strong>Carlos Milano</strong><br>Tel: 198-6158<br>Contact: @kamikaze6015</p>
+    </div>
+
+    <div class="departament">
+      <h3>D.S.L.S</h3>
+      <p>Inspector General D.S.L.S:<br><strong>Marius Macovei-Iocan</strong><br>Tel: 517-1122<br>Contact: @mario_mcv</p>
+      <br>
+      <p>Inspector Șef D.S.L.S:<br><strong>Cranta Virgil</strong><br>Tel: 076-3300<br>Contact: @olteannos</p>
+    </div>
+
+    <div class="departament">
+      <h3>I.S.U.L.S</h3>
+      <p>Inspector General I.S.U.L.S:<br><strong>Anvelopa Andrei</strong><br>Tel: 904-2311<br>Contact: @andrei.07</p>
+      <br>
+      <p>Inspector Șef I.S.U.L.S:<br><strong>Bale Andrei</strong><br>Tel: 453-7046<br>Contact: @_capy._</p>
+    </div>
+
+        <div class="departament">
+      <h3>Relatii Publice</h3>
+      <p>Inspector General I.S.U.L.S:<br><strong>Anvelopa Andrei</strong><br>Tel: 904-2311<br>Contact: @andrei.07</p>
+      <br>
+      <p>Inspector Șef I.S.U.L.S:<br><strong>Bale Andrei</strong><br>Tel: 453-7046<br>Contact: @_capy._</p>
+    </div>
+  </div>
+    <a href="https://programari-pcls.vercel.app/index.html" class="btn-apply">Creează o programare</a>
+  </section>
+
+<section id="cereri" class="forms">
+  <h2 class="text-gradient">CERERI AUDIENȚĂ & EVENIMENT</h2>
+
+  <div class="form-wrapper">
+    <!-- Formular Audiență -->
+    <form id="evenimentForm" class="form-box">
+      <p>Cerere De Eveniment</p>
+      <input type="text" id="EVENIMENT_NUME" placeholder="Nume Eveniment" required>
+      <input type="text" id="EVENIMENT_LOCATIE" placeholder="Locație" required>
+      <input type="text" id="EVENIMENT_DATA" placeholder="Data Evenimentului" required>
+      <input type="text" id="EVENIMENT_ORA" placeholder="Ora de Începere" required>
+      <input type="text" id="EVENIMENT_ORGANIZATOR" placeholder="Nume Organizator" required>
+      <input type="text" id="EVENIMENT_DISCORD" placeholder="Discord Organizator" required>
+      <input type="text" id="EVENIMENT_DETALII" placeholder="Descriere / Detalii Suplimentare" required>
+      <input type="text" id="EVENIMENT_MEDIA" placeholder="Link Video/Fotografii (opțional)">
+      <button type="submit" class="btn-apply">Trimite cererea de eveniment</button>
+    </form>
+
+    <!-- Logo între formulare -->
+    <img src="logo.png" alt="Eclipse Medical Tower" class="logo-centru">
+
+    <!-- Formular Eveniment -->
+        <form id="audientaForm" class="form-box">
+      <p>Cerere De Audiență</p>
+      <input type="text" id="NUME" placeholder="Nume și Prenumele Dvs" required>
+      <input type="number" id="ID" placeholder="Menționați Id-ul Dvs" required>
+      <input type="text" id="NUME_RECLAMAT" placeholder="Nume și Prenumele medicului reclamat" required>
+      <input type="text" id="CALL_SIGN" placeholder="Insigna medicului reclamat" required>
+      <input type="text" id="NUMAR_DE_TEL" placeholder="Numărul dvs de telefon" required maxlength="8">
+      <input type="text" id="DATA" placeholder="Menționați Data incidentului" required>
+      <input type="text" id="EMAIL" placeholder="Numele dvs de pe Discord" required>
+      <input type="text" id="DETALII" placeholder="Atașați un link cu dovada video/foto" required>
+      <button type="submit" class="btn-apply">Trimite cererea de audiență</button>
+    </form>
+  </div>
+</section>
+
+  <div id="INFORAMTII" class="footer-content">
+    <h2 class="text-gradient">INFORAMTII EXTRA</h2>
+    <div class="info-box-mini">
+      <p>
+        <li> Pentru a intra in Departament este nevoie de <span class="highlight">50 ore</span><br></li>
+        <li> In cazul in care ai luat CK se poate intra chiar si la <span class="highlight">0 ore pe caracter</span><br></li>
+        <li> Sunteti obligati o data cu intrarea in Departament sa <span class="highlight">scoateti tatuajele faciale</span></li>
+      </p>
+      <a href="https://forum.fplayt.ro/index.php?/forums/forum/165-spitalul-general-aplicatii-cv/" class="btn-apply">Vreau sa ma angajez</a>
+    </div>
+
+
+    <div class="footer-socials">
+      <a href="https://discord.com/invite/fplayt" class="social-icon"><i class="fab fa-discord"></i></a>
+      <a href="https://www.youtube.com/@allyn0214" class="social-icon"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.instagram.com/fplayt/" class="social-icon"><i class="fab fa-instagram"></i></a>
+    </div>
+
+    <div class="footer-credits">
+      <p>© Copyright Tristan. All rights reserved 2025.</p>
+    </div>
+  </div>
+
+</section>
+</body>
+</html>
+<div id="progress-bar" style="position: fixed; top: 0; left: 0; height: 5px; background-color: #ffffff; width: 0%; z-index: 1000;"></div>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script>
+  // 🔹 Definim webhooks global
+  const webhookURL = "https://discord.com/api/webhooks/1298031121472290950/ecF9Uusap4W1_JafgJozvm9LkRePjRtO2N7k_Yg1YqrvyRz1kunekHI3XM2YG5KNE71p";
+  const webhookURL_EVENIMENT = "https://discord.com/api/webhooks/1298031121472290950/ecF9Uusap4W1_JafgJozvm9LkRePjRtO2N7k_Yg1YqrvyRz1kunekHI3XM2YG5KNE71p";
+
+  // 🔹 Formular AUDIENTA
+  document.getElementById("audientaForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const data = {
+      nume: document.getElementById("NUME").value,
+      id: document.getElementById("ID").value,
+      numeReclamat: document.getElementById("NUME_RECLAMAT").value,
+      callSign: document.getElementById("CALL_SIGN").value,
+      telefon: document.getElementById("NUMAR_DE_TEL").value,
+      dataIncident: document.getElementById("DATA").value,
+      discord: document.getElementById("EMAIL").value,
+      detalii: document.getElementById("DETALII").value
+    };
+
+    const message = {
+      embeds: [{
+        title: "📋 Cerere de audiență nouă",
+        color: 0x00aaff,
+        fields: [
+          { name: "👤 Nume", value: data.nume, inline: true },
+          { name: "🆔 ID", value: data.id, inline: true },
+          { name: "🏥 Medicul reclamat", value: data.numeReclamat },
+          { name: "🔢 Insigna medicului", value: data.callSign },
+          { name: "📞 Număr de telefon", value: data.telefon },
+          { name: "📅 Data incidentului", value: data.dataIncident },
+          { name: "💬 Discord", value: data.discord },
+          { name: "📎 Dovadă", value: data.detalii }
+        ],
+        timestamp: new Date()
+      }]
+    };
+
+    try {
+      const response = await fetch(webhookURL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(message)
+      });
+
+      if (response.ok) {
+        showToast("✅ Cererea de audiență a fost trimisă!", "success");
+        e.target.reset();
+      } else {
+        showToast("❌ Eroare la trimiterea cererii!", "error");
+      }
+    } catch (err) {
+      console.error(err);
+      showToast("❌ Eroare la trimiterea cererii!", "error");
+    }
+  });
+
+  // 🔹 Formular EVENIMENT
+  document.getElementById("evenimentForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const data = {
+      numeEveniment: document.getElementById("EVENIMENT_NUME").value,
+      locatie: document.getElementById("EVENIMENT_LOCATIE").value,
+      dataEveniment: document.getElementById("EVENIMENT_DATA").value,
+      ora: document.getElementById("EVENIMENT_ORA").value,
+      organizator: document.getElementById("EVENIMENT_ORGANIZATOR").value,
+      discord: document.getElementById("EVENIMENT_DISCORD").value,
+      detalii: document.getElementById("EVENIMENT_DETALII").value,
+      media: document.getElementById("EVENIMENT_MEDIA").value
+    };
+
+    const message = {
+      embeds: [{
+        title: "🎉 Cerere de Eveniment Nouă",
+        color: 0x2ecc71,
+        fields: [
+          { name: "📛 Nume Eveniment", value: data.numeEveniment },
+          { name: "📍 Locație", value: data.locatie },
+          { name: "📅 Data", value: data.dataEveniment, inline: true },
+          { name: "⏰ Ora", value: data.ora, inline: true },
+          { name: "🧑‍💼 Organizator", value: data.organizator },
+          { name: "💬 Discord", value: data.discord },
+          { name: "📝 Detalii", value: data.detalii },
+          { name: "📎 Media", value: data.media || "Nespecificat" }
+        ],
+        timestamp: new Date()
+      }]
+    };
+
+    try {
+      const res = await fetch(webhookURL_EVENIMENT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(message)
+      });
+
+      if (res.ok) {
+        showToast("✅ Cererea de eveniment a fost trimisă!", "success");
+        e.target.reset();
+      } else {
+        showToast("❌ Eroare la trimiterea cererii (eveniment)!", "error");
+      }
+    } catch (err) {
+      console.error(err);
+      showToast("❌ A apărut o eroare la trimiterea cererii!", "error");
+    }
+  });
+
+
+    window.addEventListener('scroll', () => {
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const progress = (scrollTop / scrollHeight) * 100;
+        document.getElementById('progress-bar').style.width = progress + '%';
+    });
+
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        const dataList = document.getElementById('data-list'); // Adjust to match your container
+
+        dataList.addEventListener('click', (event) => {
+            const likeButton = event.target.closest('.like-button'); // Check if a like-button was clicked
+            if (likeButton) {
+                const likeIcon = likeButton.querySelector('svg');
+                likeIcon.classList.toggle('fill-current');
+                likeIcon.classList.toggle('text-red-500');
+                likeIcon.classList.toggle('text-gray-500');
+
+                likeButton.classList.add('animate-ping');
+                setTimeout(() => likeButton.classList.remove('animate-ping'), 200);
+            }
+        });
+    });
+    
+
+    document.querySelector('.collapsible').addEventListener('click', function() {
+        const content = this.nextElementSibling;
+        content.classList.toggle('open');
+    });
+    document.querySelector('.collapsible.second').addEventListener('click', function() {
+        const content = this.nextElementSibling;
+        content.classList.toggle('open');
+    });
+    function scrollTo(name){
+  const section=document.getElementById(name);
+  section.scrollTo({
+  top: -1000,
+  left: 0,
+  behavior: 'smooth' // optional: 'auto' or 'smooth'
+});
+}
+
+function showToast(message, type = "success") {
+  const toast = document.getElementById("toast");
+  toast.textContent = message;
+  navigator.vibrate?.(100);
+  toast.className = "toast show " + type;
+
+  setTimeout(() => {
+    toast.className = "toast"; // se ascunde
+  }, 3000);
+}
+
+// ====== Ex: apel din scriptul tău webhook ======
+async function sendWebhook(url, payload) {
+  try {
+    const res = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+
+    if (res.ok) {
+      showToast(" Cererea a fost trimisă cu succes!", "success");
+    } else {
+      showToast(" Eroare la trimiterea cererii!", "error");
+    }
+  } catch (err) {
+    console.error(err);
+    showToast(" A apărut o eroare de rețea!", "error");
+  }
+}
+
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
