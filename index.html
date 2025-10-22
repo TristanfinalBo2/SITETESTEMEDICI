@@ -37,7 +37,7 @@ header {
   justify-content: center;
   gap: 4px; /* spațiu între logo-uri */
   margin: 0 auto;
-  transform: translate(-345px, -2px); /* ajustează ușor poziția */
+  transform: translate(-356px, -2px); /* ajustează ușor poziția */
 }
 
 /* Imaginile din header */
@@ -54,19 +54,39 @@ header img:hover {
   transform: scale(1.05);
 }
 
-/* Textul și meniul */
 header nav a {
-  color: white;
-  font-weight: 900;
+  position: relative;
+  color: #fff;
+  font-weight: 800;
   text-decoration: none;
   margin: 0 15px;
-  transition: color 0.3s ease, transform 0.3s ease;
+  transition: color 0.3s ease;
+}
+
+header nav a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  width: 80%;
+  height: 2px;
+  background: linear-gradient(90deg, #ff0000, #b30000);
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.6);
+  transition: transform 0.3s ease;
+  border-radius: 5px;
 }
 
 header nav a:hover {
-  color: #ff0000;
-  transform: translateY(-2px);
+  color: #ff4d4d;
+  text-shadow: 0 0 6px rgba(255, 0, 0, 0.6);
 }
+
+header nav a:hover::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
 
 
 
@@ -797,26 +817,96 @@ header nav a:hover {
 }
 
 /* responsive tweaks */
-@media (min-width: 900px) {
-  .footer-content {
-    grid-template-columns: 1fr auto;
-    gap: 40px;
-    align-items: start;
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background: #fff;
+  border-radius: 3px;
+}
+
+/* ----- RESPONSIVE RULES ----- */
+@media (max-width: 992px) {
+  header {
+    padding: 10px 25px;
   }
-  .info-box-mini { width: 70%; }
-  .footer-socials { margin-top: 0; align-self: center; }
+
+  header nav {
+    gap: 20px;
+  }
+
+  header .logo-container h1 {
+    font-size: 1.3rem;
+  }
+
+  header .logo-pair img {
+    height: 35px;
+  }
 }
 
-@media (max-width: 600px) {
-  .info-box-mini { width: 95%; padding: 18px; }
-  .footer-socials .social { width: 46px; height: 46px; }
+@media (max-width: 768px) {
+  header {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  header nav {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background: #111;
+    width: 100%;
+    padding: 15px 0;
+    gap: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  header nav.active {
+    display: flex;
+  }
+
+  header nav a {
+    font-size: 1rem;
+  }
 }
 
+@media (max-width: 480px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 15px;
+    height: auto;
+  }
 
-    @media (max-width: 768px) {
-      .hero-content h1 { font-size: 2rem; }
-      header { flex-direction: column; text-align: center; }
-    }
+  header .logo-container {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  header .logo-pair img {
+    height: 32px;
+  }
+
+  header nav a {
+    font-size: 0.95rem;
+  }
+}
+
+  .header-logos{
+    transform: translate(-176px, -2px); /* ajustează ușor poziția */
+  }
 
   </style>
 </head>
